@@ -1,6 +1,8 @@
 # -----------------------------------
 # declaring local arrayList
 # -----------------------------------
+from http.cookiejar import join_header_words
+
 vec1 = [5, 1, 7, 4, 9]
 vec2 = [6, 8, 2, 5, 4, 3, 1]
 # -----------------------------------
@@ -23,18 +25,28 @@ def FullJoin():
 
 def FullOuterJoin():
     out = []
-    for act in vec2:
-        a = vec1[0]
-        control = [act in vec1]
-        if control != act:
-            out.append(act)
+    for var in vec1:
+        if var not in vec2:
+            out.append(var)
+    for element in vec2:
+        if element not in vec1:
+            out.append(element)
     return out
 
+def RightJoin():
+    guardar = []
+    for element in vec2:
+        if element not in vec1:
+            guardar.append(element)
+    return guardar
 # -----------------------------------
 # Executing joins functions
 # -----------------------------------
+print('Join')
 print(Join())
-print('')
+print('FullJoin')
 print(FullJoin())
-print()
+print('FullOuterJoin')
 print(FullOuterJoin())
+print('RightJoin')
+print(RightJoin())
