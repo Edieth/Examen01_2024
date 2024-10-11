@@ -13,7 +13,7 @@ def impCubo(cb, empleados, semanas):
     for pro in range(semanas):
         print(f"Semana {pro + 1}")
         for col in range(6):
-            print(f"Nombre, {dias[col]}\t", end="")
+            print(f", {dias[col]}\t", end="")
         print()
 
         for fil in range(len(cb)):
@@ -25,7 +25,7 @@ def impCubo(cb, empleados, semanas):
 
 # Calculate the monthly salary of each employee
 def calcularSalarios(cb, empleados, salarios, semanas, Horas_Laboradas):
-    print("Nómina de empleados")
+    print("Nómina Salarial")
     print("Empleado\tHoras\tSalario bruto\tHoras extra\tSalario extra\tSalario total")
 
     for fil in range(len(cb)):
@@ -37,19 +37,19 @@ def calcularSalarios(cb, empleados, salarios, semanas, Horas_Laboradas):
         horas_semanales_normales = 8 * 6
         horas_totales_normales = horas_semanales_normales * semanas
 
-        horas_extra = max(Horas_Laboradas[fil] - horas_totales_normales, 0)
+        horas_extra = Horas_Laboradas[fil] - horas_totales_normales
 
-        salario_normal = min(total_horas, horas_totales_normales) * salarios[fil]
-        salario_extra = horas_extra * salarios[fil] * 1.5
+        salario_normal = Horas_Laboradas[fil]* salarios[fil]
+        salario_extra = horas_extra * (salarios[fil] * 1.5)
         salario_total = salario_normal + salario_extra
 
 
-        print(f"{empleados[fil]}\t{total_horas}\t{salario_normal:.2f}\t\t{horas_extra}\t\t{salario_extra:.2f}\t\t{salario_total:.2f}")
+        print(f"{empleados[fil]}\t({Horas_Laboradas[fil]})\t({salario_normal:.2f})\t\t{horas_extra}\t\t{salario_extra:.2f}\t\t{salario_total:.2f}")
 
 
 
 def solicitarDatos():
-    num_empleados = int(input("¿Cuántos empleados componen la planilla? "))
+    num_empleados = int(input("¿Cuántos empleados desea ingresar en la nómina? "))
     empleados = []
     salarios = []
     Horas_Laboradas = []
