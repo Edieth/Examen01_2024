@@ -22,9 +22,13 @@ def FullJoin():
     return salida2
 
 def FullOuterJoin():
-    salida = []
-    for act in
-
+    out = []
+    for act in vec2:
+        a = vec1[0]
+        control = [act in vec1]
+        if control != act:
+            out.append(act)
+    return out
 
 # -----------------------------------
 # Executing joins functions
@@ -33,3 +37,4 @@ print(Join())
 print('')
 print(FullJoin())
 print()
+print(FullOuterJoin())
