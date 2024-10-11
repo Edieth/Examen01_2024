@@ -22,7 +22,7 @@ def FullJoin():
     if not control:
         salida2.append(act)
     return salida2
-
+#Cada elemento de los vectores se comparan para almacenar solo aquellos que no tienen en común
 def FullOuterJoin():
     out = []
     for var in vec1:
@@ -32,11 +32,11 @@ def FullOuterJoin():
         if element not in vec1:
             out.append(element)
     return out
-
+#Elementos de vec1 que no están en vec2
 def RightJoin():
     guardar = []
-    for element in vec2:
-        if element not in vec1:
+    for element in vec1:
+        if element not in vec2:
             guardar.append(element)
     return guardar
 # -----------------------------------
